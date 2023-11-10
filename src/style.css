@@ -1,1 +1,35 @@
-@import "~bootstrap/dist/css/bootstrap.min.css";
+/* @import "~bootstrap/dist/css/bootstrap.min.css"; */
+
+body {
+  background-color: green;
+}
+
+.card{
+    padding: 10px;
+    height: 300px;
+    width: 190px;
+    background: white;
+}
+
+.symbol,
+.number{
+    font-size: 20px;
+}
+
+.number{
+    font-size: 80px
+}
+
+.symbol{
+padding-top: 10px;}
+
+.number{
+    height: 230px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.bottom{
+    margin-bottom: 10px;
+}
