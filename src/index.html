@@ -1,24 +1,98 @@
 <!DOCTYPE html>
 <html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Hello Rigo with Vanilla.js</title>
+    <style>
+      /* @import "~bootstrap/dist/css/bootstrap.min.css"; */
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Hello Rigo with Vanilla.js</title>
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css"
-    integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
-    integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
-    crossorigin="anonymous" referrerpolicy="no-referrer" />
-  <link rel="stylesheet" href="style.css" />
-</head>
+      body {
+        background-color: green;
+      }
 
-<body>
-  <script src="./app.js"></script>
-  <div class="d-flex justify-content-center align-items-center">
-    <div class="card text-center" id="randomCard">
+      .card {
+        padding: 10px;
+        height: 300px;
+        width: 190px;
+        background: white;
+        border-radius: 5px;
+      }
+
+      .symbol,
+      .number {
+        font-size: 20px;
+      }
+
+      .number {
+        font-size: 80px;
+      }
+
+      .symbol {
+        padding-top: 10px;
+      }
+
+      .number {
+        height: 230px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .bottom {
+        margin-bottom: 10px;
+      }
+    </style>
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.2.0/css/all.css"
+      integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+      integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <body>
+    <script>
+      window.onload = () => {
+        const randomCard = newRandomCard();
+
+        document.getElementById("randomCard").innerHTML = `
+        <div class="row symbol">${randomCard.symbol}</div>
+        <div class="row number">${randomCard.number}</div>
+        <div class="row symbol bottom fa-rotate-180"">${randomCard.symbol}</div>
+        `;
+      };
+
+      function newRandomCard() {
+        let symbols = [
+          '<i class="fa-solid fa-heart fa-2xl" style="color: #ff0000;"></i>',
+          '<i class="fa-solid fa-diamond fa-2xl"></i>',
+          '<i class="fa-brands fa-space-awesome fa-2xl"></i>',
+          '<i class="fa-solid fa-spa fa-2xl"></i>'
+        ];
+        let numbers = ["A", 2, 3, 4, 5, 6, 7, 8, 9, "J", "Q", "K"];
+
+        const randomSymbol =
+          symbols[Math.floor(Math.random() * symbols.length)];
+        const randomNumber =
+          numbers[Math.floor(Math.random() * numbers.length)];
+
+        return {
+          symbol: randomSymbol,
+          number: randomNumber
+        };
+      }
+    </script>
+    <div class="d-flex justify-content-center align-items-center">
+      <div class="card text-center" id="randomCard"></div>
     </div>
-  </div>
-</body>
-
+  </body>
 </html>
